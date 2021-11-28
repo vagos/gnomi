@@ -1,0 +1,115 @@
+SOURCE,NAME,DESCRIPTION
+,aerc,email client
+,alacritty,terminal emulator
+,arbtt,time tracker
+,audacity,audio editor
+,bashmount,small cli helper for mounting external drives
+,bc,caculator
+,bear,compile_commands.json generator
+,beets,music library organiser
+,bind,dns tools
+,bluetuith,tui bluetooth manager
+,bluez,utility for bluetooth
+,brave-bin,browser
+,btop,system monitor
+,cht.sh-git,cheat sheet tool
+,cloc,utility for counting lines of code
+,cozette-otb,cozy bitmap font
+,cozette-ttf,cozy vector font
+,dmenu,menu for launching programs
+,docker,container manager
+,dunst,notification daemon
+,entr,utility to run arbitrary commands when files change
+,fd,find alternative
+,fzf,command line fuzzy finder
+,gdb,debugger
+,ghidra,reverse engineering tool
+,git-bug,utility for managing bugs in git
+,git-crypt,utility for encrypting files in git
+,gnome-keyring,utility for managing passwords
+,gnu-netcat,netcat alternative
+,go,the go programming language
+,gst-libav,video codec
+,gtk2,gtk2 toolkit
+,highlight,universal sourcecode to formatted text converter
+,i3-wm,window manager
+,i3blocks,bar for i3
+,imagemagick,image manipulation tool
+,inetutils,set of network utilities
+,irssi,irc client
+,lazygit,sane git interface
+,lf,terminal file manager/explorer
+,libertinus-font,font
+,light,backlight control tool
+,luarocks,package manager for lua
+,maim,screenshot tool
+,man-db,database for man
+,man-pages,set of manpages for common programs
+,mixxx,dj software
+,mons,monitor manager
+,mopidy,extensible music server
+,mopidy-mpd,mpd extension for mopidy
+,mpv,video player
+,ncdu,disk usage tool
+,ncmpcpp,terminal music player
+,neovim,text editor
+,newsboat,rss reader
+,nmap,network scanner
+,nodejs,javascript runtime
+,noto-fonts,font
+,noto-fonts-cjk,font for chinese, japanese, korean
+,noto-fonts-emoji,emoji font
+,npm,package manager for nodejs
+,otb-unifont,unicode font for extra symbols
+,pass,password manager
+,passmenu,dmenu interface for pass
+,picom,terminal compositor
+,playerctl,mpris media player controller
+,python-adblock,adblocker
+,python-neovim,python binding library for neovim
+,python-z3-solver,python binding library to the z3 theorem prover
+,qutebrowser,web browser with vim keybindings
+,ripgrep,grep alternative
+,rpcs3,ps3 emulator
+,rsync,tool for syncing files between computers
+,ruby,programming language
+,rust,programming language
+,steam,game client
+,stow,symbolic links manager
+,sxhkd,tool for setting global hotkeys
+,sxiv,simple x image viewer
+,task,task manager (taskwarrior)
+,texlive,latex distribution
+,tmux,terminal emulator
+,translate-shell,cli translator
+,ttf-ms-fonts,font
+,unifont-otb,extra glyphs
+,unzip,tool for extracting zip files
+,urbit,runtime for urbit
+,vidir,tool for editing files in a text editor
+,w3m,terminal web browser
+,wget,tool for downloading files
+,wine,windows emulator
+,xclip,tool for putting stuff into the clipboard
+,xdotool,tool for getting window information
+,xorg-server,the graphical server
+,xorg-xinit,start the graphical server
+,xwallpaper,wallpaper manager
+,xwiininfo,another tool for getting window information
+,zathura,pdf viewer
+,zathura-pdf-mupdf,
+,zoxide,cd alternative
+,pup,cli html parser
+,diff-so-fancy,git diff tool
+,bibtex-tidy,bibtex formatter
+A,mimi-bachoseven-git,default program utility - replacement to xdg-open
+A,mopidy-bandcamp,bandcamp extension for mopidy
+A,mopidy-mpris,mpris extension for mopidy
+A,mopidy-soundcloud,soundcloud extension for mopidy
+A,mopidy-ytmusic-git,youtube music extension for mopidy
+A,nodejs-neovim,neovim nodejs plugin
+A,pipx,python package manager
+A,rescrobbled-git,music scrobbler using dbus interface
+A,xbanish,tool that hides the mouse cursor when typing
+A,xxd-standalone,tool for converting files to hex
+P,neovim-remote,neovim remote plugin

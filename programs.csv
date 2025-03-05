@@ -99,6 +99,8 @@ SOURCE,NAME,DESCRIPTION
 ,zathura,pdf viewer
 ,zathura-pdf-mupdf,
 ,zoxide,cd alternative
+,pup,cli html parser
+,diff-so-fancy,git diff tool
 A,mimi-bachoseven-git,default program utility - replacement to xdg-open
 A,mopidy-bandcamp,bandcamp extension for mopidy
 A,mopidy-mpris,mpris extension for mopidy
@@ -109,3 +111,4 @@ A,pipx,python package manager
 A,rescrobbled-git,music scrobbler using dbus interface
 A,xbanish,tool that hides the mouse cursor when typing
 A,xxd-standalone,tool for converting files to hex
+P,neovim-remote,neovim remote plugin

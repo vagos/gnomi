@@ -101,6 +101,7 @@ SOURCE,NAME,DESCRIPTION
 ,zoxide,cd alternative
 ,pup,cli html parser
 ,diff-so-fancy,git diff tool
+,bibtex-tidy,bibtex formatter
 A,mimi-bachoseven-git,default program utility - replacement to xdg-open
 A,mopidy-bandcamp,bandcamp extension for mopidy
 A,mopidy-mpris,mpris extension for mopidy

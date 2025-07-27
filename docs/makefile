@@ -1,12 +1,24 @@
-.PHONY: clean
+.PHONY: clean watch
 
-all:
-	mkdir -p build
-	pdflatex -output-directory=build docs.tex
+TARGETS = docs
 
-watch:
-	zathura build/docs.pdf &
-	ls *.tex | entr make
+LATEX = xelatex -shell-escape
+BIBTEX  = bibtex
+
+all:  $(TARGETS)
+
+$(TARGETS):
+	$(LATEX) $@
+	-$(BIBTEX) $@
+	$(LATEX) $@
+	$(LATEX) $@
+	$(LATEX) $@
+
+debug:
+	-grep Warning *.log
 
 clean:
-	rm ./build/*
+	rm -f *.aux *.bbl *.blg *.log *.dvi *.bak *~ $(TARGETS:%=%.pdf)
+
+watch:
+	ls *.tex | entr make

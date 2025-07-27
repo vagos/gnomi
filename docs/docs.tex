@@ -1,28 +1,17 @@
 \documentclass{article}
 
-% Packages
-
 \usepackage{color}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \usepackage{dirtytalk}
+\usepackage{xspace}
+\usepackage{unixmanual}
 
-% Configuration
-
-\setlength{\unitlength}{1mm} % Set the length that numerical units are measured in
-\setlength{\parindent}{0pt} % Stop paragraph indentation
-\setlength{\parskip}{1em}
-\definecolor{lightgray}{gray}{0.9}
-
-% Macros
-
-\let\src\texttt
+\newcommand{\ttt}[1]{\texttt{#1}}
 \renewcommand{\dots}{\ \dotfill{}\ } % Fills in the right amount of dots
-\newcommand{\shortcut}[2]{#1~\dotfill{}~\src{#2}\\} % Custom command for adding a shorcut
-% \newcommand{\src}[2][bash]{\colorbox{lightgray}{\lstinline[language=#1] #2}}
-
-\newcommand{\me}{Vagos Labrou}
-\newcommand{\instlname}{VARS}
+\newcommand{\shortcut}[2]{#1~\dotfill{}~\ttt{#2}\\} % Custom command for adding a shorcut
+\newcommand{\me}{Evagelos (Vagos) Lamprou}
+\newcommand{\sys}{Gnomi\xspace}
 \newcommand{\terminalemulator}{alacritty}
 \newcommand{\editor}{vim}
 \newcommand{\browser}{qutebrowser}
@@ -33,10 +22,8 @@
 
 \newcommand{\shortcuttitle}[1]{\underline{#1}}
 
-% Info
-
-\author{Vagos Labrou}
-\title{VARS Documentation}
+\author{\me}
+\title{\sys Documentation}
 \date{}
 
 \begin{document}
@@ -56,7 +43,7 @@ as you see fit.
 
 \textbf{WARNING: This documentation is incomplete. You can figure most shortcuts out 
 by looking at the configuration files located in 
-\src{\char`~/.dotfiles}}
+\ttt{\char`~/.dotfiles}}
 
 \section{Main Overview}
 
@@ -85,7 +72,7 @@ can arrange your windows.
 This is a good addition but can be dangerous when you end 
 up splitting your work between many workspaces and forget 
 where certain windows are. 
-That's why you are \say{limited} to only two (2) workspaces: \src{main} and \src{other}.
+That's why you are \say{limited} to only two (2) workspaces: \ttt{main} and \ttt{other}.
 
 Try to maximize the ammount of windows you have open in a single 
 workspace. Utilize tabs and when things get cluttered, send 
@@ -154,12 +141,12 @@ The terminal emulator used is \terminalemulator.
 \subsection{Organisation}
 
 When the installation is finished you will have three (3)
-folders in your home directory: \src{files, projects, downloads}.
+folders in your home directory: \ttt{files, projects, downloads}.
 
 \begin{itemize}
-    \item \src{files}: In here, you can put your media, documents and other useful stuff.
-    \item \src{projects}: Each of your projects should live here in it's own folder.
-    \item \src{downloads}: A temporary folder for downloads.
+    \item \ttt{files}: In here, you can put your media, documents and other useful stuff.
+    \item \ttt{projects}: Each of your projects should live here in it's own folder.
+    \item \ttt{downloads}: A temporary folder for downloads.
 \end{itemize}
 
 Folder names should have a homogenous naming-scheme as to avoid confusion when 
@@ -183,25 +170,23 @@ so that you can control your computer's music from any other device on your loca
 \subsection{Syncing}
 
 For syncing between computers (or folders) the utility rsync is used. 
-Some useful scripts are included in the \src{files/scripts} folder.
+Some useful scripts are included in the \ttt{files/scripts} folder.
 
-\subsection{Other}
-
-\subsubsection{Edit Configurations}
+\subsection{Edit Configurations}
 
 To quickly find and edit a configuration file, type 
-\src{ce} in your terminal. An fzf menu will appear for you 
+\ttt{ce} in your terminal. An fzf menu will appear for you 
 to search, find and edit any of the configuration files. 
-In a regular \instlname installation these should be 
-in \src{\char`~/.dotfiles}.
+In a regular \sys installation these should be 
+in \ttt{\char`~/.dotfiles}.
 
-\subsubsection{Manpages}
+\subsection{Manpages}
 
 Try and get into the habit of reading manpages and documentation in general.
 StackOveflow and similar sites are good for solving small problems but a single 
 skim of the documentation can solve more questions than many seperate searches.
 
-Most utilities on your systems include a manual which can accesed using \src{man <name>}.
+Most utilities on your systems include a manual which can accesed using \ttt{man <name>}.
 
 % Use makefiles!
 % Use cheat.sh

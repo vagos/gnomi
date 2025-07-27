@@ -102,6 +102,7 @@ SOURCE,NAME,DESCRIPTION
 ,pup,cli html parser
 ,diff-so-fancy,git diff tool
 ,bibtex-tidy,bibtex formatter
+,dict,dictionary client
 A,mimi-bachoseven-git,default program utility - replacement to xdg-open
 A,mopidy-bandcamp,bandcamp extension for mopidy
 A,mopidy-mpris,mpris extension for mopidy

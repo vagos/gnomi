@@ -157,7 +157,7 @@ getuserandpass()
 
 changeperms()
 {
-  echo "$* #VARS" >> /etc/sudoers
+  echo "$* #gnomi" >> /etc/sudoers
 }
 
 adduser()

@@ -11,7 +11,7 @@
 \renewcommand{\dots}{\ \dotfill{}\ } % Fills in the right amount of dots
 \newcommand{\shortcut}[2]{#1~\dotfill{}~\ttt{#2}\\} % Custom command for adding a shorcut
 \newcommand{\me}{Evagelos (Vagos) Lamprou}
-\newcommand{\sys}{Gnomi\xspace}
+\newcommand{\sys}{\textsc{Gnomi}\xspace}
 \newcommand{\terminalemulator}{alacritty}
 \newcommand{\editor}{vim}
 \newcommand{\browser}{qutebrowser}
@@ -23,7 +23,7 @@
 \newcommand{\shortcuttitle}[1]{\underline{#1}}
 
 \author{\me}
-\title{\sys Documentation}
+\title{\sys User Manual}
 \date{}
 
 \begin{document}
@@ -33,17 +33,16 @@
 
 \section{Introduction}
 
-Welcome to VARS! The official install script created by \me. Once the installation 
-is done, you will get a fully featured Arch Linux installation filled with handpicked 
-utilities that all combine into a cohesive workflow.
+Welcome to \sys!
+Once the installation is done, you will get a fully featured Arch Linux installation filled with handpicked utilities that all combine into a cohesive workflow.
 
-This documentation gives some guidelines on how to use your system. Obviously, 
-these are all simply reccomendations; you should modify anything and everything
-as you see fit.
+This documentation gives some guidelines on how to use your system.
+Obviously, these are all simply reccomendations; you should modify anything and everything as you see fit.
 
-\textbf{WARNING: This documentation is incomplete. You can figure most shortcuts out 
+This documentation is incomplete.
+You can figure most shortcuts out 
 by looking at the configuration files located in 
-\ttt{\char`~/.dotfiles}}
+\ttt{\char`~/.dotfiles}.
 
 \section{Main Overview}
 
@@ -117,7 +116,6 @@ the best out of the box experience.
 \subsubsection{Shortcuts}
 
 \shortcut{Close \editor}{:q}
-
 \shortcut{Install/Update your plugins}{:PlugInstall}
 \shortcut{Install a code-completion engine through CoC}{:CocInstall \textless plugin-name\textgreater}
 

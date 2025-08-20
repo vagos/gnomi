@@ -8,11 +8,11 @@
 % Use Bera Mono as monospace font (PDFLaTeX compatible)
 \RequirePackage[scaled]{beramono}
 \renewcommand{\ttdefault}{fvm}
-\renewcommand{\familydefault}{\ttdefault}
+% \renewcommand{\familydefault}{\ttdefault}
 
 % Page layout: 1in margins on letterpaper
 \RequirePackage[letterpaper,margin=1in]{geometry}
-\setlength{\parindent}{2em}
+\setlength{\parindent}{0em}
 \setlength{\parskip}{0.5em}
 \raggedbottom
 
@@ -23,7 +23,7 @@
 % Headers & footers
 \RequirePackage{fancyhdr}
 \fancyhf{}
-\fancyhead[L]{\small UNIX Programmer's Manual}
+\fancyhead[L]{\small \GetTitleString}
 \fancyhead[R]{\small Section \nouppercase{\rightmark}}
 \fancyfoot[C]{\thepage}
 \pagestyle{fancy}

@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 script_version="0.1"
 script_name="gnomi"

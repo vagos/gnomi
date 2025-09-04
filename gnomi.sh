@@ -1,7 +1,8 @@
 #!/bin/bash
+set -e
 
-SCRIPT_VERSION="0.1"
-SCRIPT_NAME="gnomi"
+script_version="0.1"
+script_name="gnomi"
 
 function usage ()
 {
@@ -21,8 +22,8 @@ function usage ()
 while getopts ":p:d:h:v" opt; do
   case ${opt} in
 
-    h) usage; exit 0   ;;
-    v) echo "$0 -- Version $SCRIPT_VERSION"; exit 0  ;;
+    h) usage; exit 0 ;;
+    v) echo "$0 $script_version"; exit 0 ;;
     d) dotfiles=${OPTARG} && git ls-remote "$dotfiles" || exit 1 ;;
     p) prgrmsfile=${OPTARGS} ;;
     ?) echo -e "\nOption does not exist : ($OPTARG)\n"; usage && exit 1 ;;
@@ -34,11 +35,9 @@ done
 [ -z "$prgrmsfile"   ] && prgrmsfile="https://raw.githubusercontent.com/vagos/gnomi/main/programs.csv"
 [ -z "$aurhelper"    ] && aurhelper="yay"
 
-
 #-----------------------------------------------------------------------
 #  Utility functions
 #-----------------------------------------------------------------------
-
 
 installpkg() { pacman --noconfirm --needed -S "$1" &> /dev/null; }
 
@@ -48,13 +47,12 @@ welcome()
 {
   clear
   printf "Welcome!\n"
-  printf "This is the $ScriptName installer script!\nRelax and enjoy the installation!\n\n-Vagos\n\n\n"
+  printf "This is the %s installer script!\nEnjoy the installation!\n\n-Vagos Lamprou\n\n\n" "$script_name"
 }
 
 basicinstall()
 {
   echo "Installing the bare basics first..."
-    
   for pkg in curl base-devel git zsh; do
     echo "Installing $pkg"
     installpkg $pkg
@@ -64,22 +62,19 @@ basicinstall()
 refreshkeyrings()
 {
   echo "Refreshing Arch Keyring"
- 
   installpkg archlinux-keyring
-
   pacman -Syy
 }
 
-
 gitinstall()
 {
-   sleep 1
+   error "Not implemented."
 }
 
 aurhelperinstall()
 {
-  sudo -u "$name" $aurhelper -S --noconfirm "$1" 
-  echo "$pacman -Qqm" | grep -q "^$1$" && error "Failed to intall AUR package: $1"
+  sudo -u "$name" "$aurhelper" -S --noconfirm "$1" 
+  pacman -Qqm | grep -q "^$1$" && error "Failed to intall AUR package: $1"
 }
 
 pipinstall()
@@ -90,27 +85,26 @@ pipinstall()
 
 manualinstall()
 {
-  sudo -u "$name" mkdir -p $srcdir
+  sudo -u "$name" mkdir -p "$srcdir"
   sudo -u "$name" git clone --depth 1 "https://aur.archlinux.org/$1.git" "$srcdir/$1"
   cd "$srcdir/$1"
 
-  sudo -u $name -D "$srcdir/$1" makepkg --noconfirm -si || return 1
+  sudo -u "$name" -D "$srcdir/$1" makepkg --noconfirm -si || return 1
 }
-
 
 installprograms() # Install all the programs located in the programs file
 {
-  ( [ -f "$prgrmsfile" ] && cat "$prgrmsfile" | sed "/^#/d" > /tmp/programs.csv ) || curl -sL $prgrmsfile | sed "/^#/d" > /tmp/programs.csv
+  ( [ -f "$prgrmsfile" ] &&  sed "/^#/d" < "$prgrmsfile" > /tmp/programs.csv ) || curl -sL "$prgrmsfile" | sed "/^#/d" > /tmp/programs.csv
   nprgrms=$(wc -l < /tmp/programs.csv) # number of programs to install
 
   while IFS=, read -r tag program comment; do
     n=$((n+1))
 
-    echo Installing: $program: $comment
+    echo Installing: "$program": "$comment" "($n of $nprgrms)"
 
     case "$tag" in 
-      "P") pipinstall $program ;;
-      *) aurhelperinstall $program   ;;
+      "P") pipinstall "$program" ;;
+      *) aurhelperinstall "$program"   ;;
     esac
 
   done < /tmp/programs.csv
@@ -119,37 +113,22 @@ installprograms() # Install all the programs located in the programs file
 installdotfiles() # Install dotfiles with stow
 {
   echo "Installing dotfiles..."
-
-  [ -z $3 ] && branch="main"
-
+  [ -z "$3" ] && branch="main"
   dtdir="/home/$name/.dotfiles"
-
   sudo -u "$name" git clone -b "$branch" --recurse-submodules "$1" "$dtdir" 
-
-  cd $dtdir
+  cd "$dtdir" || error "Couldn't change to dotfiles directory"
 
   for dir in */; do
-    
     printf "Installing dotfiles for %s\n" "${dir%/}"
     stow "${dir%/}"
-
   done
 }
 
 getuserandpass()
 {
-  read -p "Please enter a username: " name
-
+  read -rp "Please enter your username: " name
   while ! echo "$name" | grep -q "^[a-z_][a-z0-9_-]*$"; do 
-    read -p "Please enter a (valid) username: " name
-  done
-
-  while :; do
-    read -sp "Please enter a password: " pass
-    echo
-    read -sp "Please repeat your password: " passcnfrm
-    if [ "$pass" = "$passcnfrm" ]; then break; fi;
-    echo "Passwords didn't match!"
+    read -rp "Please enter a (valid) username: " name
   done
 
   clear
@@ -160,43 +139,35 @@ changeperms()
   echo "$* #gnomi" >> /etc/sudoers
 }
 
-adduser()
+usersetup()
 {
-  echo "Adding user $name"
+  echo "Seting up user $name"
 
-  useradd -m -g wheel -s /bin/zsh $name 
-  mkdir -p /home/$name
+  useradd -m -g wheel -s /bin/zsh "$name" 
+  mkdir -p /home/"$name"
 
-  chown "$name":wheel /home/$name
-  echo "$name:$pass" | chpasswd
+  chown "$name":wheel /home/"$name"
 
-  unset pass passcnfrm;
-
-  export srcdir="/home/$name/.local/src"; mkdir -p $srcdir; chown -R "$name":wheel "$(dirname $srcdir)"
-}
-
-finalize()
-{
-  echo "All done!"
+  export srcdir="/home/$name/.local/src" 
+  mkdir -p "$srcdir" 
+  chown -R "$name":wheel "$(dirname "$srcdir")"
 }
 
 extrainstalls()
 {
-  cd /home/$name
+  cd /home/"$name" || error "Couldn't change to home directory"
 
-  nvim +'PlugInstall --sync' +qa # Install vim plugins
+  # Install vim plugins
+  nvim +'PlugInstall --sync' +qa 
 
-  for dir in downloads projects files; do 
-    mkdir -p /home/$name/$dir
+  # Create home folders
+  for dir in bin wrk etc var; do 
+    mkdir -p /home/"$name"/$dir
   done
 
-  # enable ssh
+  # Enable ssh
   systemctl start sshd.service
   systemctl enable sshd.service
-
-  read -p "Do you want to add various helper scripts/presets?" -n 1 -r
-
-  # [[ $REPLY =~ ^[Yy]$ ]] && mv extras/* /home/$name 
 }
 
 #-----------------------------------------------------------------------
@@ -221,8 +192,8 @@ manualinstall "yay-bin" || error "Failed to install AUR helper."
 
 installprograms
 
-installdotfiles $dotfilesrepo
+installdotfiles "$dotfilesrepo"
 
 extrainstalls
 
-finalize
+echo "All done!"

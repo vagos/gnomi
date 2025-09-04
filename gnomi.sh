@@ -174,15 +174,18 @@ extrainstalls()
 #  Main installation
 #-----------------------------------------------------------------------
 
-welcome 
+welcome
+
+# Check if script is run as root
+[ "$EUID" -ne 0 ] && error "Please run as root."
 
 getuserandpass || error "Installation cancelled."
+
+usersetup || error "Failed to setup user."
 
 refreshkeyrings
 
 basicinstall
-
-adduser || error "Couldn't add username and/or password."
 
 # Allow user to run sudo without password.
 changeperms "%wheel ALL=(ALL) NOPASSWD: ALL"

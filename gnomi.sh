@@ -89,7 +89,7 @@ manualinstall()
   sudo -u "$name" git clone --depth 1 "https://aur.archlinux.org/$1.git" "$srcdir/$1"
   cd "$srcdir/$1"
 
-  sudo -u "$name" -D "$srcdir/$1" makepkg --noconfirm -si || return 1
+  sudo -u "$name" makepkg --noconfirm -si || return 1
 }
 
 installprograms() # Install all the programs located in the programs file

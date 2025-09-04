@@ -33,7 +33,7 @@ done
 
 [ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/vagos/.dotfiles.git"
 [ -z "$prgrmsfile"   ] && prgrmsfile="https://raw.githubusercontent.com/vagos/gnomi/main/programs.csv"
-[ -z "$aurhelper"    ] && aurhelper="yay"
+aurhelper="yay"
 
 #-----------------------------------------------------------------------
 #  Utility functions

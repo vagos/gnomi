@@ -57,7 +57,7 @@ SOURCE,NAME,DESCRIPTION
 ,nmap,network scanner
 ,nodejs,javascript runtime
 ,noto-fonts,font
-,noto-fonts-cjk,font for chinese, japanese, korean
+,noto-fonts-cjk,font for east asian languages
 ,noto-fonts-emoji,emoji font
 ,npm,package manager for nodejs
 ,otb-unifont,unicode font for extra symbols
@@ -86,7 +86,7 @@ SOURCE,NAME,DESCRIPTION
 ,unifont-otb,extra glyphs
 ,unzip,tool for extracting zip files
 ,urbit,runtime for urbit
-,vidir,tool for editing files in a text editor
+,vidir,edit directories using your $EDITOR
 ,w3m,terminal web browser
 ,wget,tool for downloading files
 ,wine,windows emulator
@@ -103,7 +103,7 @@ SOURCE,NAME,DESCRIPTION
 ,diff-so-fancy,git diff tool
 ,bibtex-tidy,bibtex formatter
 ,dict,dictionary client
-A,mimi-bachoseven-git,default program utility - replacement to xdg-open
+A,mimi-bachoseven-git,replacement to xdg-open
 A,mopidy-bandcamp,bandcamp extension for mopidy
 A,mopidy-mpris,mpris extension for mopidy
 A,mopidy-soundcloud,soundcloud extension for mopidy

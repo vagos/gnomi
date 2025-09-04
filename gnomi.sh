@@ -73,7 +73,7 @@ gitinstall()
 aurhelperinstall()
 {
   sudo -u "$name" "$aurhelper" -S --noconfirm "$1" 
-  pacman -Qqm | grep -q "^$1$" && error "Failed to intall AUR package: $1"
+  pacman -Qqm | grep -q "^$1$" || error "Failed to intall AUR package: $1"
 }
 
 pipinstall()

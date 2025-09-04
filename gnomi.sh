@@ -80,8 +80,8 @@ aurhelperinstall()
 
 pipinstall()
 {
-  [ -x "$(command -v "pip")" ] || installpkg "python-pip" 
-  yes | pip install "$1"
+  [ -x "$(command -v "pipx")" ] || installpkg "python-pipx"
+  pipx install "$1" > /dev/null 2>&1
 }
 
 manualinstall()

@@ -42,6 +42,7 @@ aurhelper="yay"
 installpkg() { pacman --noconfirm --needed -S "$1" &> /dev/null; }
 
 error() { printf "%s\n" "$1" >&2; exit 1; }
+warning() { printf "%s\n" "$1" >&2; }
 
 welcome() 
 {
@@ -73,8 +74,8 @@ gitinstall()
 
 aurhelperinstall()
 {
-  sudo -u "$name" "$aurhelper" -S --noconfirm "$1" 
-  pacman -Qq | grep -q "^$1$" || error "Failed to intall AUR package: $1"
+  sudo -u "$name" "$aurhelper" -S --noconfirm "$1" > /dev/null 2>&1
+  pacman -Qq | grep -q "^$1$" || warning "Might have failed to install $1"
 }
 
 pipinstall()

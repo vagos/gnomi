@@ -87,7 +87,7 @@ manualinstall()
 {
   sudo -u "$name" mkdir -p "$srcdir"
   sudo -u "$name" git clone --depth 1 "https://aur.archlinux.org/$1.git" "$srcdir/$1"
-  cd "$srcdir/$1"
+  cd "$srcdir/$1" || error "Couldn't change to $1 directory"
 
   sudo -u "$name" makepkg --noconfirm -si || return 1
 }

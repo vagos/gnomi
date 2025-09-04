@@ -103,6 +103,7 @@
 ,diff-so-fancy,git diff tool
 ,bibtex-tidy,bibtex formatter
 ,dict,dictionary client
+,tailscale,zero config vpn
 A,mimi-bachoseven-git,replacement to xdg-open
 A,mopidy-bandcamp,bandcamp extension for mopidy
 A,mopidy-mpris,mpris extension for mopidy

@@ -1,0 +1,100 @@
+.\" gnomi(7) user manual
+.TH GNOMI 7 "" "gnomi 0.1" "User Manuals"
+.SH NAME
+gnomi \- curated Arch Linux setup overview and defaults
+.SH DESCRIPTION
+\fBGnomi\fR installs an opinionated Arch Linux environment with a handful of carefully chosen tools and shortcuts.
+This page summarizes the defaults that are configured after the installation so you can get productive quickly or adjust them to your liking.
+.PP
+Most shortcuts and behaviors can be inspected and customized in \fB~/.dotfiles\fR.
+.SH GLOBAL SHORTCUTS
+Shortcuts are handled by \fBsxhkd\fR and are meant to remain consistent even if you swap window managers.
+.TP
+\fBMod+ENTER\fR
+Open a new terminal.
+.TP
+\fBMod+d\fR
+Launch applications with dmenu.
+.TP
+\fBMod+PrintScr\fR
+Take a screenshot.
+.PP
+Function keys are configured for the usual brightness, volume, and media controls.
+.SH WINDOW MANAGER
+\fBi3\fR is the default window manager.
+Keep work within two workspaces, \fBmain\fR and \fBother\fR, to avoid losing track of windows.
+Prefer keeping related windows together; use tabs, move overflow to the scratchpad, or close when things get cluttered.
+.SS Movement
+.TP
+\fBMod+Arrow keys\fR
+Focus different windows.
+.TP
+\fBMod+number\fR
+Move between workspaces.
+.TP
+\fBMod+Shift+number\fR
+Send the focused window to another workspace.
+.SS Layout
+.TP
+\fBMod+w\fR
+Stack windows.
+.TP
+\fBMod+e\fR
+Tile windows.
+.TP
+\fBMod+v\fR
+Split the focused container vertically.
+.TP
+\fBMod+h\fR
+Split the focused container horizontally.
+.SH TEXT EDITING
+\fBvim\fR is the primary editor with a minimal plugin set; core tasks like git, file management, and multiplexing are delegated to other tools.
+Code completion uses CoC (Conquer of Completion) for a solid out-of-the-box experience.
+.SS Common commands
+.TP
+\fB:q\fR
+Quit vim.
+.TP
+\fB:PlugInstall\fR
+Install or update plugins.
+.TP
+\fB:CocInstall <plugin>\fR
+Install a completion engine through CoC.
+.SH WEB
+\fBqutebrowser\fR is the default browser and is optimized for keyboard-only use.
+.TP
+\fBo\fR
+Start a search or open a URL.
+.TP
+\fB,m\fR
+Open the current video in \fBmpv\fR.
+.PP
+Use \fBBrave\fR if you need password management or Chrome extensions.
+.SH TERMINAL
+\fBAlacritty\fR is the terminal emulator configured by default.
+.SH ORGANIZATION
+The installer creates three top-level directories in your home:
+.IP \(bu 2
+\fBfiles\fR \- media, documents, and general storage.
+.IP \(bu 2
+\fBprojects\fR \- each project lives in its own subdirectory.
+.IP \(bu 2
+\fBdownloads\fR \- temporary downloads.
+.PP
+Use simple, lowercase names for consistency when searching or browsing.
+.SH DOCUMENT CREATION
+Use \fBLaTeX\fR for document authoring; after building a few templates it becomes a fast way to produce clean, high-quality documents.
+.SH ENTERTAINMENT
+Music is served by \fBmpd\fR with \fBncmpcpp\fR as the client.
+If you need integrations with services like YouTube or Spotify, switch to \fBMopidy\fR; it can also expose a web front end so you can control playback from devices on your local network.
+.SH SYNCING
+Use \fBrsync\fR to sync between machines or directories.
+Helper scripts live under \fB~/files/scripts\fR.
+.SH CONFIGURATION EDITING
+Run \fBce\fR in the terminal to launch an \fBfzf\fR menu that lets you search for and edit configuration files, typically stored in \fB~/.dotfiles\fR.
+.SH MANPAGES
+Get comfortable reading manual pages and upstream docs.
+A quick skim often beats multiple web searches.
+Most utilities ship with manuals accessible via \fBman <name>\fR.
+.SH CONTACT
+Email: \fBvagoslabrou@gmail.com\fR

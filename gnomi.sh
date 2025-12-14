@@ -124,15 +124,6 @@ installdotfiles() # Install dotfiles with stow
   done
 }
 
-getuserandpass()
-{
-  read -rp "Please enter your username: " name
-  while ! echo "$name" | grep -q "^[a-z_][a-z0-9_-]*$"; do 
-    read -rp "Please enter a (valid) username: " name
-  done
-
-  clear
-}
 
 changeperms()
 {
@@ -194,7 +185,7 @@ welcome
 # Check if script is run as root
 [ "$EUID" -ne 0 ] && error "Please run as root."
 
-getuserandpass || error "Installation cancelled."
+name=${SUDO_USER:-$(whoami)}
 
 usersetup || error "Failed to setup user."
 

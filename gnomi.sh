@@ -167,7 +167,7 @@ extrainstalls()
   sudo -u "$name" nvim +'PlugInstall --sync' +qa # check if this is right 
 
   # Create home folders
-  for dir in bin wrk etc var; do 
+  for dir in bin wrk etc var tmp; do 
     mkdir -p /home/"$name"/$dir
   done
 

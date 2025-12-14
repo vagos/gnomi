@@ -115,3 +115,4 @@ A,rescrobbled-git,music scrobbler using dbus interface
 A,xbanish,tool that hides the mouse cursor when typing
 A,xxd-standalone,tool for converting files to hex
 P,neovim-remote,neovim remote plugin
+,openai-codex-bin,LLM-based programming assistant

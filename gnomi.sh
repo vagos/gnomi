@@ -174,6 +174,15 @@ extrainstalls()
   # Enable ssh
   systemctl start sshd.service
   systemctl enable sshd.service
+
+  # Enable docker
+  systemctl start docker.service
+  systemctl enable docker.service
+
+  # Setup tailscale
+  systemctl start tailscaled.service
+  systemctl enable tailscaled.service
+  tailscale up
 }
 
 #-----------------------------------------------------------------------

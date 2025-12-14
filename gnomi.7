@@ -1,7 +1,7 @@
 .\" gnomi(7) user manual
 .TH GNOMI 7 "" "gnomi 0.1" "User Manuals"
 .SH NAME
-gnomi \- curated Arch Linux setup overview and defaults
+gnomi \- an opinionated UNIX system configuration
 .SH DESCRIPTION
 \fBGnomi\fR installs an opinionated Arch Linux environment with a handful of carefully chosen tools and shortcuts.
 This page summarizes the defaults that are configured after the installation so you can get productive quickly or adjust them to your liking.
@@ -49,7 +49,6 @@ Split the focused container vertically.
 Split the focused container horizontally.
 .SH TEXT EDITING
 \fBvim\fR is the primary editor with a minimal plugin set; core tasks like git, file management, and multiplexing are delegated to other tools.
-Code completion uses CoC (Conquer of Completion) for a solid out-of-the-box experience.
 .SS Common commands
 .TP
 \fB:q\fR
@@ -57,9 +56,6 @@ Quit vim.
 .TP
 \fB:PlugInstall\fR
 Install or update plugins.
-.TP
-\fB:CocInstall <plugin>\fR
-Install a completion engine through CoC.
 .SH WEB
 \fBqutebrowser\fR is the default browser and is optimized for keyboard-only use.
 .TP
@@ -73,15 +69,17 @@ Use \fBBrave\fR if you need password management or Chrome extensions.
 .SH TERMINAL
 \fBAlacritty\fR is the terminal emulator configured by default.
 .SH ORGANIZATION
-The installer creates three top-level directories in your home:
+The installer creates several top-level directories in your $HOME:
+.PD 0
 .IP \(bu 2
-\fBfiles\fR \- media, documents, and general storage.
+\fBvar\fR \- media, documents, and general storage.
 .IP \(bu 2
-\fBprojects\fR \- each project lives in its own subdirectory.
+\fBwrk\fR \- each project lives in its own subdirectory.
 .IP \(bu 2
-\fBdownloads\fR \- temporary downloads.
+\fBtmp\fR \- temporary files and downloads.
 .PP
 Use simple, lowercase names for consistency when searching or browsing.
+.PD
 .SH DOCUMENT CREATION
 Use \fBLaTeX\fR for document authoring; after building a few templates it becomes a fast way to produce clean, high-quality documents.
 .SH ENTERTAINMENT
@@ -91,10 +89,7 @@ If you need integrations with services like YouTube or Spotify, switch to \fBMop
 Use \fBrsync\fR to sync between machines or directories.
 Helper scripts live under \fB~/files/scripts\fR.
 .SH CONFIGURATION EDITING
-Run \fBce\fR in the terminal to launch an \fBfzf\fR menu that lets you search for and edit configuration files, typically stored in \fB~/.dotfiles\fR.
-.SH MANPAGES
-Get comfortable reading manual pages and upstream docs.
-A quick skim often beats multiple web searches.
-Most utilities ship with manuals accessible via \fBman <name>\fR.
-.SH CONTACT
-Email: \fBvagoslabrou@gmail.com\fR
+All configuration files should be stored in \fB~/.dotfiles\fR, with appropriate subdirectories for each application and symlinked to their expected locations.
+Each one can be freely edited to your liking.
+.SH AUTHOR
+Evangelos Lamprou \fBvagos@lamprou.xyz\fR

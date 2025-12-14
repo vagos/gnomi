@@ -78,7 +78,7 @@
 ,stow,symbolic links manager
 ,sxhkd,tool for setting global hotkeys
 ,sxiv,simple x image viewer
-,task,task manager (taskwarrior)
+,task,task manager
 ,texlive,latex distribution
 ,tmux,terminal emulator
 ,translate-shell,cli translator

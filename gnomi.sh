@@ -143,7 +143,13 @@ usersetup()
 {
   echo "Seting up user $name"
 
-  useradd -m -g wheel -s /bin/zsh "$name" 
+  if ! id -u "$name" &> /dev/null; then
+    error "Please create the user $name first and re-run $script_name."
+  fi
+
+  sudo usermod -aG wheel "$name"
+  sudo usermod -s /bin/zsh "$name"
+
   mkdir -p /home/"$name"
 
   chown "$name":wheel /home/"$name"
@@ -158,7 +164,7 @@ extrainstalls()
   cd /home/"$name" || error "Couldn't change to home directory"
 
   # Install vim plugins
-  nvim +'PlugInstall --sync' +qa 
+  sudo -u "$name" nvim +'PlugInstall --sync' +qa # check if this is right 
 
   # Create home folders
   for dir in bin wrk etc var; do 

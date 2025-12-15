@@ -1,6 +1,11 @@
 docker build -t gnomi .
 docker run --rm -it gnomi ./gnomi.sh
 
+to-do
+-----
+- fix Dockerfile
+
+
 to-add
 -----
 
